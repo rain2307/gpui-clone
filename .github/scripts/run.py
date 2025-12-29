@@ -348,8 +348,14 @@ use perf::*;
                     if f == ".git": continue
                     
                     rel_path = os.path.relpath(os.path.join(root, f), UPLOAD_DIR)
-                    if rel_path.startswith(".github"): continue
-                    if f == "README.md": continue
+                    
+                    # Skip README.md in the root
+                    if rel_path == "README.md":
+                        continue
+
+                    # Skip .github directory content
+                    if rel_path.startswith(".github"):
+                        continue
 
                     src_path = os.path.join(OUTPUT_DIR, rel_path)
                     

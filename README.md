@@ -3,7 +3,6 @@
 <div align="center">
 
 [![Sync GPUI](https://github.com/rain2307/gpui-clone/actions/workflows/sync_gpui.yml/badge.svg)](https://github.com/rain2307/gpui-clone/actions/workflows/sync_gpui.yml)
-[![Discord](https://img.shields.io/discord/869403914562492416?color=5865F2&label=discord)](https://discord.gg/zed)
 [![License](https://img.shields.io/badge/license-AGPL%203.0-blue)](https://github.com/zed-industries/zed/blob/main/LICENSE-AGPL)
 [![Rust](https://img.shields.io/badge/rust-stable-brightgreen.svg)](https://www.rust-lang.org/)
 

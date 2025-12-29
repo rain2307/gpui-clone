@@ -1,0 +1,585 @@
+[workspace]
+resolver = "2"
+members = [ "crates/collections", "crates/gpui", "crates/gpui_macros", "crates/http_client", "crates/http_client_tls", "crates/media", "crates/refineable", "crates/refineable/derive_refineable", "crates/reqwest_client", "crates/sum_tree", "crates/util", "crates/util_macros", "crates/zlog", "crates/ztracing", "crates/ztracing_macro",]
+default-members = [ "crates/gpui",]
+
+[workspace.package]
+publish = false
+edition = "2024"
+
+[workspace.dependencies]
+crossbeam = "0.8.4"
+aho-corasick = "1.1"
+alacritty_terminal = "0.25.1-rc1"
+any_vec = "0.14"
+anyhow = "1.0.86"
+async-compat = "0.2.1"
+async-dispatcher = "0.1"
+async-fs = "2.1"
+async-lock = "2.1"
+async-recursion = "1.0.0"
+async-tar = "0.5.1"
+async-task = "4.7"
+async-trait = "0.1"
+async-tungstenite = "0.31.0"
+backtrace = "0.3"
+base64 = "0.22"
+bincode = "1.2.1"
+bitflags = "2.6.0"
+brotli = "8.0.2"
+bytes = "1.0"
+cargo_metadata = "0.19"
+cargo_toml = "0.21"
+cfg-if = "1.0.3"
+chardetng = "0.1"
+ciborium = "0.2"
+circular-buffer = "1.0"
+cocoa = "=0.26.0"
+cocoa-foundation = "=0.2.0"
+convert_case = "0.8.0"
+core-foundation = "=0.10.0"
+core-foundation-sys = "0.8.6"
+cpal = "0.16"
+crash-handler = "0.6"
+ctor = "0.4.0"
+dashmap = "6.0"
+derive_more = "0.99.17"
+dirs = "4.0"
+documented = "0.9.1"
+dotenvy = "0.15.0"
+ec4rs = "1.1"
+emojis = "0.6.1"
+env_logger = "0.11"
+encoding_rs = "0.8"
+exec = "0.3.1"
+fancy-regex = "0.16.0"
+fork = "0.4.0"
+futures = "0.3"
+futures-lite = "1.13"
+globset = "0.4"
+handlebars = "4.3"
+heck = "0.5"
+hex = "0.4.3"
+human_bytes = "0.4.1"
+html5ever = "0.27.0"
+http = "1.1"
+http-body = "1.0"
+hyper = "0.14"
+ignore = "0.4.22"
+image = "0.25.1"
+imara-diff = "0.1.8"
+indoc = "2"
+inventory = "0.3.19"
+itertools = "0.14.0"
+json_dotpath = "1.1"
+jsonschema = "0.37.0"
+jsonwebtoken = "9.3"
+jupyter-protocol = "0.10.0"
+jupyter-websocket-client = "0.15.0"
+libc = "0.2"
+linkify = "0.10.0"
+mach2 = "0.5"
+markup5ever_rcdom = "0.3.0"
+metal = "0.29"
+minidumper = "0.8"
+nanoid = "0.4"
+nbformat = "0.15.0"
+nix = "0.29"
+num-format = "0.4.4"
+objc = "0.2"
+open = "5.0.0"
+ordered-float = "2.1.1"
+parking_lot = "0.12.1"
+partial-json-fixer = "0.5.3"
+parse_int = "0.9"
+pciid-parser = "0.8.0"
+pathdiff = "0.2"
+portable-pty = "0.9.0"
+proc-macro2 = "1.0.93"
+profiling = "1"
+prost = "0.9"
+prost-build = "0.9"
+prost-types = "0.9"
+quote = "1.0.9"
+rand = "0.9"
+rayon = "1.8"
+regex = "1.5"
+rsa = "0.9.6"
+rustc-hash = "2.1.0"
+rustls-platform-verifier = "0.5.0"
+serde_path_to_error = "0.1.17"
+serde_repr = "0.1"
+serde_urlencoded = "0.7"
+sha2 = "0.10"
+shellexpand = "2.1.0"
+shlex = "1.3.0"
+simplelog = "0.12.2"
+slotmap = "1.0.6"
+smol = "2.0"
+sqlformat = "0.2"
+stacksafe = "0.1"
+streaming-iterator = "0.1"
+strsim = "0.11"
+subtle = "2.5.0"
+sys-locale = "0.3.1"
+sysinfo = "0.37.0"
+take-until = "0.2.0"
+tempfile = "3.20.0"
+thiserror = "2.0.12"
+tiny_http = "0.8"
+toml = "0.8"
+tower-http = "0.4.4"
+tree-sitter-bash = "0.25.1"
+tree-sitter-c = "0.23"
+tree-sitter-css = "0.23"
+tree-sitter-diff = "0.1.0"
+tree-sitter-elixir = "0.3"
+tree-sitter-embedded-template = "0.23.0"
+tree-sitter-go = "0.23"
+tree-sitter-html = "0.23"
+tree-sitter-jsdoc = "0.23"
+tree-sitter-json = "0.24"
+tree-sitter-python = "0.25"
+tree-sitter-regex = "0.24"
+tree-sitter-ruby = "0.23"
+tree-sitter-rust = "0.24"
+tracing = "0.1.40"
+unicase = "2.6"
+unicode-script = "0.5.7"
+unicode-segmentation = "1.10"
+unindent = "0.2.0"
+url = "2.2"
+urlencoding = "2.1.2"
+walkdir = "2.5"
+wasm-encoder = "0.221"
+wasmparser = "0.221"
+wasmtime-wasi = "33"
+wax = "0.6"
+which = "6.0.0"
+windows-core = "0.61"
+yawc = "0.2.5"
+zeroize = "1.8"
+zstd = "0.11"
+
+[profile.dev]
+split-debuginfo = "unpacked"
+incremental = false
+codegen-units = 16
+
+[profile.release]
+debug = "limited"
+lto = "thin"
+codegen-units = 1
+
+[profile.release-fast]
+inherits = "release"
+debug = "full"
+lto = false
+codegen-units = 16
+
+[workspace.dependencies.collections]
+path = "crates/collections"
+version = "0.1.0"
+
+[workspace.dependencies.derive_refineable]
+path = "crates/refineable/derive_refineable"
+
+[workspace.dependencies.gpui]
+path = "crates/gpui"
+default-features = false
+
+[workspace.dependencies.gpui_macros]
+path = "crates/gpui_macros"
+
+[workspace.dependencies.http_client]
+path = "crates/http_client"
+
+[workspace.dependencies.http_client_tls]
+path = "crates/http_client_tls"
+
+[workspace.dependencies.media]
+path = "crates/media"
+
+[workspace.dependencies.refineable]
+path = "crates/refineable"
+
+[workspace.dependencies.reqwest_client]
+path = "crates/reqwest_client"
+
+[workspace.dependencies.rodio]
+git = "https://github.com/RustAudio/rodio"
+rev = "e2074c6c2acf07b57cf717e076bdda7a9ac6e70b"
+features = [ "wav", "playback", "wav_output", "recording",]
+
+[workspace.dependencies.sum_tree]
+path = "crates/sum_tree"
+
+[workspace.dependencies.util]
+path = "crates/util"
+
+[workspace.dependencies.util_macros]
+path = "crates/util_macros"
+
+[workspace.dependencies.zlog]
+path = "crates/zlog"
+
+[workspace.dependencies.ztracing]
+path = "crates/ztracing"
+
+[workspace.dependencies.ztracing_macro]
+path = "crates/ztracing_macro"
+
+[workspace.dependencies.agent-client-protocol]
+version = "=0.9.2"
+features = [ "unstable",]
+
+[workspace.dependencies.arrayvec]
+version = "0.7.4"
+features = [ "serde",]
+
+[workspace.dependencies.ashpd]
+version = "0.11"
+default-features = false
+features = [ "async-std",]
+
+[workspace.dependencies.async-compression]
+version = "0.4"
+features = [ "gzip", "futures-io",]
+
+[workspace.dependencies.async-pipe]
+git = "https://github.com/zed-industries/async-pipe-rs"
+rev = "82d00a04211cf4e1236029aa03e6b6ce2a74c553"
+
+[workspace.dependencies.async_zip]
+version = "0.0.18"
+features = [ "deflate", "deflate64",]
+
+[workspace.dependencies.aws-config]
+version = "1.8.10"
+features = [ "behavior-version-latest",]
+
+[workspace.dependencies.aws-credential-types]
+version = "1.2.8"
+features = [ "hardcoded-credentials",]
+
+[workspace.dependencies.aws-sdk-bedrockruntime]
+version = "1.112.0"
+features = [ "behavior-version-latest",]
+
+[workspace.dependencies.aws-smithy-runtime-api]
+version = "1.9.2"
+features = [ "http-1x", "client",]
+
+[workspace.dependencies.aws-smithy-types]
+version = "1.3.4"
+features = [ "http-body-1-x",]
+
+[workspace.dependencies.blade-graphics]
+version = "0.7.0"
+
+[workspace.dependencies.blade-macros]
+version = "0.3.0"
+
+[workspace.dependencies.blade-util]
+version = "0.3.0"
+
+[workspace.dependencies.chrono]
+version = "0.4"
+features = [ "serde",]
+
+[workspace.dependencies.clap]
+version = "4.4"
+features = [ "derive", "wrap_help",]
+
+[workspace.dependencies.core-video]
+version = "0.4.3"
+features = [ "metal",]
+
+[workspace.dependencies.criterion]
+version = "0.5"
+features = [ "html_reports",]
+
+[workspace.dependencies.dap-types]
+git = "https://github.com/zed-industries/dap-types"
+rev = "1b461b310481d01e02b2603c16d7144b926339f8"
+
+[workspace.dependencies.gh-workflow]
+git = "https://github.com/zed-industries/gh-workflow"
+rev = "09acfdf2bd5c1d6254abefd609c808ff73547b2c"
+
+[workspace.dependencies.git2]
+version = "0.20.1"
+default-features = false
+
+[workspace.dependencies.heed]
+version = "0.21.0"
+features = [ "read-txn-no-tls",]
+
+[workspace.dependencies.indexmap]
+version = "2.7.0"
+features = [ "serde",]
+
+[workspace.dependencies.libsqlite3-sys]
+version = "0.30.1"
+features = [ "bundled",]
+
+[workspace.dependencies.log]
+version = "0.4.16"
+features = [ "kv_unstable_serde", "serde",]
+
+[workspace.dependencies.lsp-types]
+git = "https://github.com/zed-industries/lsp-types"
+rev = "b71ab4eeb27d9758be8092020a46fe33fbca4e33"
+
+[workspace.dependencies.moka]
+version = "0.12.10"
+features = [ "sync",]
+
+[workspace.dependencies.naga]
+version = "25.0"
+features = [ "wgsl-in",]
+
+[workspace.dependencies.objc2-foundation]
+version = "=0.3.1"
+default-features = false
+features = [ "NSArray", "NSAttributedString", "NSBundle", "NSCoder", "NSData", "NSDate", "NSDictionary", "NSEnumerator", "NSError", "NSGeometry", "NSNotification", "NSNull", "NSObjCRuntime", "NSObject", "NSProcessInfo", "NSRange", "NSRunLoop", "NSString", "NSURL", "NSUndoManager", "NSValue", "objc2-core-foundation", "std",]
+
+[workspace.dependencies.palette]
+version = "0.7.5"
+default-features = false
+features = [ "std",]
+
+[workspace.dependencies.pet]
+git = "https://github.com/microsoft/python-environment-tools.git"
+rev = "1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da"
+
+[workspace.dependencies.pet-conda]
+git = "https://github.com/microsoft/python-environment-tools.git"
+rev = "1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da"
+
+[workspace.dependencies.pet-core]
+git = "https://github.com/microsoft/python-environment-tools.git"
+rev = "1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da"
+
+[workspace.dependencies.pet-fs]
+git = "https://github.com/microsoft/python-environment-tools.git"
+rev = "1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da"
+
+[workspace.dependencies.pet-poetry]
+git = "https://github.com/microsoft/python-environment-tools.git"
+rev = "1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da"
+
+[workspace.dependencies.pet-reporter]
+git = "https://github.com/microsoft/python-environment-tools.git"
+rev = "1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da"
+
+[workspace.dependencies.pet-virtualenv]
+git = "https://github.com/microsoft/python-environment-tools.git"
+rev = "1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da"
+
+[workspace.dependencies.postage]
+version = "0.5"
+features = [ "futures-traits",]
+
+[workspace.dependencies.pretty_assertions]
+version = "1.3.0"
+features = [ "unstable",]
+
+[workspace.dependencies.pulldown-cmark]
+version = "0.12.0"
+default-features = false
+
+[workspace.dependencies.reqwest]
+git = "https://github.com/zed-industries/reqwest.git"
+rev = "c15662463bda39148ba154100dd44d3fba5873a4"
+default-features = false
+features = [ "charset", "http2", "macos-system-configuration", "multipart", "rustls-tls-native-roots", "socks", "stream",]
+package = "zed-reqwest"
+version = "0.12.15-zed"
+
+[workspace.dependencies.runtimelib]
+version = "0.30.0"
+default-features = false
+features = [ "async-dispatcher-runtime", "aws-lc-rs",]
+
+[workspace.dependencies.rust-embed]
+version = "8.4"
+features = [ "include-exclude",]
+
+[workspace.dependencies.rustls]
+version = "0.23.26"
+
+[workspace.dependencies.scap]
+git = "https://github.com/zed-industries/scap"
+rev = "4afea48c3b002197176fb19cd0f9b180dd36eaac"
+default-features = false
+package = "zed-scap"
+version = "0.0.8-zed"
+
+[workspace.dependencies.schemars]
+version = "1.0"
+features = [ "indexmap2",]
+
+[workspace.dependencies.semver]
+version = "1.0"
+features = [ "serde",]
+
+[workspace.dependencies.serde]
+version = "1.0.221"
+features = [ "derive", "rc",]
+
+[workspace.dependencies.serde_json]
+version = "1.0.144"
+features = [ "preserve_order", "raw_value",]
+
+[workspace.dependencies.serde_json_lenient]
+version = "0.2"
+features = [ "preserve_order", "raw_value",]
+
+[workspace.dependencies.smallvec]
+version = "1.6"
+features = [ "union", "const_new",]
+
+[workspace.dependencies.strum]
+version = "0.27.2"
+features = [ "derive",]
+
+[workspace.dependencies.syn]
+version = "2.0.101"
+features = [ "full", "extra-traits", "visit-mut",]
+
+[workspace.dependencies.tiktoken-rs]
+git = "https://github.com/zed-industries/tiktoken-rs"
+rev = "2570c4387a8505fb8f1d3f3557454b474f1e8271"
+
+[workspace.dependencies.time]
+version = "0.3"
+features = [ "macros", "parsing", "serde", "serde-well-known", "formatting", "local-offset",]
+
+[workspace.dependencies.tokio]
+version = "1"
+
+[workspace.dependencies.tokio-tungstenite]
+version = "0.26"
+features = [ "__rustls-tls",]
+
+[workspace.dependencies.tokio-socks]
+version = "0.5.2"
+default-features = false
+features = [ "futures-io", "tokio",]
+
+[workspace.dependencies.toml_edit]
+version = "0.22"
+default-features = false
+features = [ "display", "parse", "serde",]
+
+[workspace.dependencies.tree-sitter]
+version = "0.26"
+features = [ "wasm",]
+
+[workspace.dependencies.tree-sitter-cpp]
+git = "https://github.com/tree-sitter/tree-sitter-cpp"
+rev = "5cb9b693cfd7bfacab1d9ff4acac1a4150700609"
+
+[workspace.dependencies.tree-sitter-gitcommit]
+git = "https://github.com/zed-industries/tree-sitter-git-commit"
+rev = "88309716a69dd13ab83443721ba6e0b491d37ee9"
+
+[workspace.dependencies.tree-sitter-go-mod]
+git = "https://github.com/camdencheek/tree-sitter-go-mod"
+rev = "2e886870578eeba1927a2dc4bd2e2b3f598c5f9a"
+package = "tree-sitter-gomod"
+
+[workspace.dependencies.tree-sitter-gowork]
+git = "https://github.com/zed-industries/tree-sitter-go-work"
+rev = "acb0617bf7f4fda02c6217676cc64acb89536dc7"
+
+[workspace.dependencies.tree-sitter-heex]
+git = "https://github.com/zed-industries/tree-sitter-heex"
+rev = "1dd45142fbb05562e35b2040c6129c9bca346592"
+
+[workspace.dependencies.tree-sitter-md]
+git = "https://github.com/tree-sitter-grammars/tree-sitter-markdown"
+rev = "9a23c1a96c0513d8fc6520972beedd419a973539"
+
+[workspace.dependencies.tree-sitter-typescript]
+git = "https://github.com/zed-industries/tree-sitter-typescript"
+rev = "e2c53597d6a5d9cf7bbe8dccde576fe1e46c5899"
+
+[workspace.dependencies.tree-sitter-yaml]
+git = "https://github.com/zed-industries/tree-sitter-yaml"
+rev = "baff0b51c64ef6a1fb1f8390f3ad6015b83ec13a"
+
+[workspace.dependencies.uuid]
+version = "1.1.2"
+features = [ "v4", "v5", "v7", "serde",]
+
+[workspace.dependencies.wasmtime]
+version = "33"
+default-features = false
+features = [ "async", "demangle", "runtime", "cranelift", "component-model", "incremental-cache", "parallel-compilation",]
+
+[workspace.dependencies.windows]
+version = "0.61"
+features = [ "Foundation_Numerics", "Storage_Search", "Storage_Streams", "System_Threading", "UI_ViewManagement", "Wdk_System_SystemServices", "Win32_Globalization", "Win32_Graphics_Direct3D", "Win32_Graphics_Direct3D11", "Win32_Graphics_Direct3D_Fxc", "Win32_Graphics_DirectComposition", "Win32_Graphics_DirectWrite", "Win32_Graphics_Dwm", "Win32_Graphics_Dxgi", "Win32_Graphics_Dxgi_Common", "Win32_Graphics_Gdi", "Win32_Graphics_Imaging", "Win32_Graphics_Hlsl", "Win32_Networking_WinSock", "Win32_Security", "Win32_Security_Credentials", "Win32_Security_Cryptography", "Win32_Storage_FileSystem", "Win32_System_Com", "Win32_System_Com_StructuredStorage", "Win32_System_Console", "Win32_System_DataExchange", "Win32_System_IO", "Win32_System_LibraryLoader", "Win32_System_Memory", "Win32_System_Ole", "Win32_System_Performance", "Win32_System_Pipes", "Win32_System_SystemInformation", "Win32_System_SystemServices", "Win32_System_Threading", "Win32_System_Variant", "Win32_System_WinRT", "Win32_UI_Controls", "Win32_UI_HiDpi", "Win32_UI_Input_Ime", "Win32_UI_Input_KeyboardAndMouse", "Win32_UI_Shell", "Win32_UI_Shell_Common", "Win32_UI_Shell_PropertiesSystem", "Win32_UI_WindowsAndMessaging",]
+
+[workspace.lints.clippy]
+dbg_macro = "deny"
+todo = "deny"
+declare_interior_mutable_const = "deny"
+redundant_clone = "deny"
+disallowed_methods = "deny"
+type_complexity = "allow"
+let_underscore_future = "allow"
+single_range_in_vec_init = "allow"
+too_many_arguments = "allow"
+large_enum_variant = "allow"
+nonminimal_bool = "allow"
+
+[workspace.metadata.cargo-machete]
+ignored = [ "bindgen", "cbindgen", "prost_build", "serde", "component", "documented", "sea-orm-macros",]
+
+[patch.crates-io.notify]
+git = "https://github.com/zed-industries/notify.git"
+rev = "b4588b2e5aee68f4c0e100f140e808cbce7b1419"
+
+[patch.crates-io.notify-types]
+git = "https://github.com/zed-industries/notify.git"
+rev = "b4588b2e5aee68f4c0e100f140e808cbce7b1419"
+
+[patch.crates-io.windows-capture]
+git = "https://github.com/zed-industries/windows-capture.git"
+rev = "f0d6c1b6691db75461b732f6d5ff56eed002eeb9"
+
+[patch.crates-io.calloop]
+git = "https://github.com/zed-industries/calloop"
+
+[profile.dev.build-override]
+codegen-units = 16
+
+[profile.release.package]
+
+[workspace.lints.rust.unexpected_cfgs]
+level = "allow"
+
+[workspace.lints.clippy.style]
+level = "allow"
+priority = -1
+
+[profile.dev.package.gpui_macros]
+opt-level = 3
+
+[profile.dev.package.derive_refineable]
+opt-level = 3
+
+[profile.dev.package.util_macros]
+opt-level = 3
+
+[profile.dev.package.collections]
+codegen-units = 1
+
+[profile.dev.package.refineable]
+codegen-units = 1
+
+[profile.dev.package.reqwest_client]
+codegen-units = 1

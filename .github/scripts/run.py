@@ -349,6 +349,7 @@ use perf::*;
                     
                     rel_path = os.path.relpath(os.path.join(root, f), UPLOAD_DIR)
                     if rel_path.startswith(".github"): continue
+                    if f == "README.md": continue
 
                     src_path = os.path.join(OUTPUT_DIR, rel_path)
                     

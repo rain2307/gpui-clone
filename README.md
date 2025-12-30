@@ -27,7 +27,7 @@ The synchronization process is fully automated via GitHub Actions and performs t
 
 -   **No Git History**: This repository only tracks the *current* state of GPUI. All original Git commit history from the Zed repository is discarded during the extraction process to keep the distribution lightweight.
 -   **Automated Only**: The code in the target repository is managed by an automated script. Manual changes should not be made there as they will be overwritten by the next sync.
--   **Upstream Updates**: We track the latest stable/main branch of Zed. Breaking changes from upstream will be reflected here within 24 hours.
+-   **Upstream Updates**: We track the latest stable/main branch of Zed. Breaking changes from upstream will be reflected here within 2 hours.
 
 ## Target Repository
 

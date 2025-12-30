@@ -350,7 +350,7 @@ use perf::*;
                     rel_path = os.path.relpath(os.path.join(root, f), UPLOAD_DIR)
                     
                     # Skip README.md in the root
-                    if rel_path == "README.md":
+                    if rel_path.lower() == "readme.md":
                         continue
 
                     # Skip .github directory content

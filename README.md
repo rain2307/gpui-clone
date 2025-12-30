@@ -14,7 +14,7 @@ This project provides an automated pipeline to extract and synchronize the **GPU
 
 The synchronization process is fully automated via GitHub Actions and performs the following steps:
 
-1.  **Source Sync**: Every day at **00:00 UTC**, the latest code is pulled from the official Zed repository.
+-   **Source Sync**: Every 2 hours, the latest code is pulled from the official Zed repository.
 2.  **Dependency Analysis**: The script analyzes the dependency graph of the `gpui` crate to identify all required local crates.
 3.  **Code Cleanup**:
     -   Removes all files and crates unrelated to GPUI.

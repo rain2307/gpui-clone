@@ -275,13 +275,16 @@ version = "1.3.4"
 features = [ "http-body-1-x",]
 
 [workspace.dependencies.blade-graphics]
-version = "0.7.0"
+git = "https://github.com/kvark/blade"
+rev = "e3cf011ca18a6dfd907d1dedd93e85e21f005fe3"
 
 [workspace.dependencies.blade-macros]
-version = "0.3.0"
+git = "https://github.com/kvark/blade"
+rev = "e3cf011ca18a6dfd907d1dedd93e85e21f005fe3"
 
 [workspace.dependencies.blade-util]
-version = "0.3.0"
+git = "https://github.com/kvark/blade"
+rev = "e3cf011ca18a6dfd907d1dedd93e85e21f005fe3"
 
 [workspace.dependencies.chrono]
 version = "0.4"

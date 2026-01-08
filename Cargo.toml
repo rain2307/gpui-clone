@@ -389,7 +389,7 @@ version = "1.3.0"
 features = [ "unstable",]
 
 [workspace.dependencies.pulldown-cmark]
-version = "0.12.0"
+version = "0.13.0"
 default-features = false
 
 [workspace.dependencies.reqwest]

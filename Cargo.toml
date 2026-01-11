@@ -241,7 +241,7 @@ version = "0.7.4"
 features = [ "serde",]
 
 [workspace.dependencies.ashpd]
-version = "0.12"
+version = "0.12.1"
 default-features = false
 features = [ "async-std",]
 

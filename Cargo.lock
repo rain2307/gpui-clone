@@ -2300,7 +2300,6 @@ dependencies = [
  "env_logger",
  "etagere",
  "filedescriptor",
- "flume",
  "foreign-types",
  "futures",
  "gpui_macros",

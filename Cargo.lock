@@ -4839,6 +4839,7 @@ dependencies = [
  "async-task",
  "backtrace",
  "chrono",
+ "flume",
  "futures",
  "parking_lot",
  "rand 0.9.2",

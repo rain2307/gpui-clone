@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = [ "crates/collections", "crates/gpui", "crates/gpui_macros", "crates/http_client", "crates/http_client_tls", "crates/media", "crates/refineable", "crates/refineable/derive_refineable", "crates/scheduler", "crates/reqwest_client", "crates/sum_tree", "crates/util", "crates/util_macros", "crates/zlog", "crates/ztracing", "crates/ztracing_macro",]
+members = [ "crates/collections", "crates/gpui", "crates/gpui_macros", "crates/http_client", "crates/http_client_tls", "crates/media", "crates/refineable", "crates/refineable/derive_refineable", "crates/reqwest_client", "crates/sum_tree", "crates/util", "crates/util_macros", "crates/zlog", "crates/ztracing", "crates/ztracing_macro",]
 default-members = [ "crates/gpui",]
 
 [workspace.package]
@@ -210,9 +210,6 @@ path = "crates/reqwest_client"
 git = "https://github.com/RustAudio/rodio"
 rev = "e2074c6c2acf07b57cf717e076bdda7a9ac6e70b"
 features = [ "wav", "playback", "wav_output", "recording",]
-
-[workspace.dependencies.scheduler]
-path = "crates/scheduler"
 
 [workspace.dependencies.sum_tree]
 path = "crates/sum_tree"

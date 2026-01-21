@@ -357,31 +357,31 @@ features = [ "std",]
 
 [workspace.dependencies.pet]
 git = "https://github.com/microsoft/python-environment-tools.git"
-rev = "1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da"
+rev = "d5b5bb0c4558a51d8cc76b514bc870fd1c042f16"
 
 [workspace.dependencies.pet-conda]
 git = "https://github.com/microsoft/python-environment-tools.git"
-rev = "1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da"
+rev = "d5b5bb0c4558a51d8cc76b514bc870fd1c042f16"
 
 [workspace.dependencies.pet-core]
 git = "https://github.com/microsoft/python-environment-tools.git"
-rev = "1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da"
+rev = "d5b5bb0c4558a51d8cc76b514bc870fd1c042f16"
 
 [workspace.dependencies.pet-fs]
 git = "https://github.com/microsoft/python-environment-tools.git"
-rev = "1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da"
+rev = "d5b5bb0c4558a51d8cc76b514bc870fd1c042f16"
 
 [workspace.dependencies.pet-poetry]
 git = "https://github.com/microsoft/python-environment-tools.git"
-rev = "1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da"
+rev = "d5b5bb0c4558a51d8cc76b514bc870fd1c042f16"
 
 [workspace.dependencies.pet-reporter]
 git = "https://github.com/microsoft/python-environment-tools.git"
-rev = "1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da"
+rev = "d5b5bb0c4558a51d8cc76b514bc870fd1c042f16"
 
 [workspace.dependencies.pet-virtualenv]
 git = "https://github.com/microsoft/python-environment-tools.git"
-rev = "1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da"
+rev = "d5b5bb0c4558a51d8cc76b514bc870fd1c042f16"
 
 [workspace.dependencies.postage]
 version = "0.5"

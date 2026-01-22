@@ -10,7 +10,7 @@ edition = "2024"
 [workspace.dependencies]
 crossbeam = "0.8.4"
 aho-corasick = "1.1"
-alacritty_terminal = "0.25.1-rc1"
+alacritty_terminal = "0.25.1"
 any_vec = "0.14"
 anyhow = "1.0.86"
 async-compat = "0.2.1"

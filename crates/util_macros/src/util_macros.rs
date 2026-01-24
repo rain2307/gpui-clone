@@ -1,10 +1,16 @@
 #![cfg_attr(not(target_os = "windows"), allow(unused))]
 #![allow(clippy::test_attr_in_doctest)]
 
-
 mod perf {
     #[derive(Default, Clone, Copy, Debug)]
-    pub enum Importance { Critical, Important, #[default] Average, Iffy, Fluff }
+    pub enum Importance {
+        Critical,
+        Important,
+        #[default]
+        Average,
+        Iffy,
+        Fluff,
+    }
     impl std::fmt::Display for Importance {
         fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
             write!(f, "{:?}", self)

@@ -303,6 +303,9 @@ use perf::*;
         if shutil.which("cargo"):
             print("Building gpui...")
             subprocess.run(["cargo", "build", "-p", "gpui"], check=True, cwd=OUTPUT_DIR)
+
+            print("Formatting code...")
+            subprocess.run(["cargo", "fmt", "--all"], check=True, cwd=OUTPUT_DIR)
         else:
             print("Cargo not found, skipping build.")
 

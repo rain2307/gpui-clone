@@ -164,7 +164,7 @@ zstd = "0.11"
 
 [profile.dev]
 split-debuginfo = "unpacked"
-incremental = false
+incremental = true
 codegen-units = 16
 
 [profile.release]

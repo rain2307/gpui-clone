@@ -557,11 +557,11 @@ rev = "b4486cd71e4e94fbda54ce6302444de14f4d190e"
 
 [patch.crates-io.notify]
 git = "https://github.com/zed-industries/notify.git"
-rev = "b4588b2e5aee68f4c0e100f140e808cbce7b1419"
+rev = "6c550ac3c56cbd143c57ea6390e197af9d790908"
 
 [patch.crates-io.notify-types]
 git = "https://github.com/zed-industries/notify.git"
-rev = "b4588b2e5aee68f4c0e100f140e808cbce7b1419"
+rev = "6c550ac3c56cbd143c57ea6390e197af9d790908"
 
 [patch.crates-io.windows-capture]
 git = "https://github.com/zed-industries/windows-capture.git"

@@ -235,7 +235,7 @@ path = "crates/ztracing"
 path = "crates/ztracing_macro"
 
 [workspace.dependencies.agent-client-protocol]
-version = "=0.9.3"
+version = "=0.9.4"
 features = [ "unstable",]
 
 [workspace.dependencies.alacritty_terminal]

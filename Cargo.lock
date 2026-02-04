@@ -4533,6 +4533,7 @@ dependencies = [
  "regex",
  "serde",
  "tokio",
+ "util",
  "zed-reqwest",
 ]
 

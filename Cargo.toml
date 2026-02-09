@@ -74,8 +74,8 @@ itertools = "0.14.0"
 json_dotpath = "1.1"
 jsonschema = "0.37.0"
 jsonwebtoken = "10.0"
-jupyter-protocol = "0.10.0"
-jupyter-websocket-client = "0.15.0"
+jupyter-protocol = "1.1.0"
+jupyter-websocket-client = "1.0.0"
 libc = "0.2"
 linkify = "0.10.0"
 mach2 = "0.5"
@@ -83,7 +83,7 @@ markup5ever_rcdom = "0.3.0"
 metal = "0.29"
 minidumper = "0.8"
 nanoid = "0.4"
-nbformat = "0.15.0"
+nbformat = "1.0.0"
 nix = "0.29"
 num-format = "0.4.4"
 objc = "0.2"
@@ -411,7 +411,7 @@ package = "zed-reqwest"
 version = "0.12.15-zed"
 
 [workspace.dependencies.runtimelib]
-version = "0.30.0"
+version = "1.1.0"
 default-features = false
 features = [ "async-dispatcher-runtime", "aws-lc-rs",]
 

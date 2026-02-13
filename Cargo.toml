@@ -203,6 +203,11 @@ path = "crates/http_client_tls"
 [workspace.dependencies.media]
 path = "crates/media"
 
+[workspace.dependencies.mermaid-rs-renderer]
+git = "https://github.com/zed-industries/mermaid-rs-renderer"
+branch = "fix-font-family-xml-escaping"
+default-features = false
+
 [workspace.dependencies.refineable]
 path = "crates/refineable"
 

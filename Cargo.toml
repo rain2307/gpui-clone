@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = [ "crates/collections", "crates/gpui", "crates/gpui_macros", "crates/http_client", "crates/http_client_tls", "crates/media", "crates/refineable", "crates/refineable/derive_refineable", "crates/scheduler", "crates/reqwest_client", "crates/sum_tree", "crates/util", "crates/util_macros", "crates/zlog", "crates/ztracing", "crates/ztracing_macro",]
+members = [ "crates/collections", "crates/gpui", "crates/gpui_linux", "crates/gpui_macos", "crates/gpui_macros", "crates/gpui_platform", "crates/gpui_wgpu", "crates/gpui_windows", "crates/http_client", "crates/http_client_tls", "crates/media", "crates/refineable", "crates/refineable/derive_refineable", "crates/scheduler", "crates/reqwest_client", "crates/sum_tree", "crates/util", "crates/util_macros", "crates/zlog", "crates/ztracing", "crates/ztracing_macro",]
 default-members = [ "crates/gpui",]
 
 [workspace.package]
@@ -190,8 +190,27 @@ path = "crates/refineable/derive_refineable"
 path = "crates/gpui"
 default-features = false
 
+[workspace.dependencies.gpui_linux]
+path = "crates/gpui_linux"
+default-features = false
+
+[workspace.dependencies.gpui_macos]
+path = "crates/gpui_macos"
+default-features = false
+
 [workspace.dependencies.gpui_macros]
 path = "crates/gpui_macros"
+
+[workspace.dependencies.gpui_platform]
+path = "crates/gpui_platform"
+default-features = false
+
+[workspace.dependencies.gpui_wgpu]
+path = "crates/gpui_wgpu"
+
+[workspace.dependencies.gpui_windows]
+path = "crates/gpui_windows"
+default-features = false
 
 [workspace.dependencies.http_client]
 path = "crates/http_client"
@@ -566,6 +585,8 @@ git = "https://github.com/zed-industries/calloop"
 
 [profile.dev.build-override]
 codegen-units = 16
+split-debuginfo = "unpacked"
+debug = true
 
 [profile.release.package]
 

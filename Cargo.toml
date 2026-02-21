@@ -80,7 +80,7 @@ libc = "0.2"
 linkify = "0.10.0"
 mach2 = "0.5"
 markup5ever_rcdom = "0.3.0"
-metal = "0.29"
+metal = "0.33"
 minidumper = "0.8"
 nanoid = "0.4"
 nbformat = "1.0.0"
@@ -316,7 +316,7 @@ version = "4.4"
 features = [ "derive", "wrap_help",]
 
 [workspace.dependencies.core-video]
-version = "0.4.3"
+version = "0.5.2"
 features = [ "metal",]
 
 [workspace.dependencies.criterion]

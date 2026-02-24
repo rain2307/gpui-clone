@@ -271,9 +271,9 @@ version = "0.7.4"
 features = [ "serde",]
 
 [workspace.dependencies.ashpd]
-version = "0.12.1"
+version = "0.13"
 default-features = false
-features = [ "async-std",]
+features = [ "async-io", "notification", "open_uri", "file_chooser", "settings", "trash",]
 
 [workspace.dependencies.async-compression]
 version = "0.4"

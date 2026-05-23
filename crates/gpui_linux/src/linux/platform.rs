@@ -26,7 +26,8 @@ use gpui::{
     Action, AnyWindowHandle, BackgroundExecutor, ClipboardItem, CursorStyle, DisplayId,
     ForegroundExecutor, Keymap, Menu, MenuItem, OwnedMenu, PathPromptOptions, Platform,
     PlatformDisplay, PlatformKeyboardLayout, PlatformKeyboardMapper, PlatformTextSystem,
-    PlatformWindow, Result, RunnableVariant, Task, ThermalState, WindowAppearance, WindowParams,
+    PlatformWindow, Result, RunnableVariant, Task, ThermalState, WindowAppearance,
+    WindowButtonLayout, WindowParams,
 };
 #[cfg(any(feature = "wayland", feature = "x11"))]
 use gpui::{Pixels, Point, px};
@@ -55,12 +56,12 @@ pub(crate) trait LinuxClient {
     fn display(&self, id: DisplayId) -> Option<Rc<dyn PlatformDisplay>>;
     fn primary_display(&self) -> Option<Rc<dyn PlatformDisplay>>;
 
-    #[allow(dead_code)]
+    #[cfg(feature = "screen-capture")]
     fn is_screen_capture_supported(&self) -> bool {
-        false
+        true
     }
 
-    #[allow(dead_code)]
+    #[cfg(feature = "screen-capture")]
     fn screen_capture_sources(
         &self,
     ) -> oneshot::Receiver<Result<Vec<Rc<dyn gpui::ScreenCaptureSource>>>> {
@@ -79,6 +80,10 @@ pub(crate) trait LinuxClient {
         options: WindowParams,
     ) -> anyhow::Result<Box<dyn PlatformWindow>>;
     fn set_cursor_style(&self, style: CursorStyle);
+    fn hide_cursor_until_mouse_moves(&self) {}
+    fn is_cursor_visible(&self) -> bool {
+        true
+    }
     fn open_uri(&self, uri: &str);
     fn reveal_path(&self, path: PathBuf);
     fn write_to_primary(&self, item: ClipboardItem);
@@ -114,6 +119,7 @@ pub(crate) struct LinuxCommon {
     pub(crate) text_system: Arc<dyn PlatformTextSystem>,
     pub(crate) appearance: WindowAppearance,
     pub(crate) auto_hide_scrollbars: bool,
+    pub(crate) button_layout: WindowButtonLayout,
     pub(crate) callbacks: PlatformHandlers,
     pub(crate) signal: LoopSignal,
     pub(crate) menus: Vec<OwnedMenu>,
@@ -124,7 +130,7 @@ impl LinuxCommon {
         let (main_sender, main_receiver) = PriorityQueueCalloopReceiver::new();
 
         #[cfg(any(feature = "wayland", feature = "x11"))]
-        let text_system = Arc::new(crate::linux::CosmicTextSystem::new());
+        let text_system = Arc::new(crate::linux::CosmicTextSystem::new("IBM Plex Sans"));
         #[cfg(not(any(feature = "wayland", feature = "x11")))]
         let text_system = Arc::new(gpui::NoopTextSystem::new());
 
@@ -140,6 +146,7 @@ impl LinuxCommon {
             text_system,
             appearance: WindowAppearance::Light,
             auto_hide_scrollbars: false,
+            button_layout: WindowButtonLayout::linux_default(),
             callbacks,
             signal,
             menus: Vec::new(),
@@ -229,17 +236,14 @@ impl<P: LinuxClient + 'static> Platform for LinuxPlatform<P> {
         log::info!("Restarting process, using app path: {:?}", app_path);
 
         // Script to wait for the current process to exit and then restart the app.
-        let script = format!(
-            r#"
-            while kill -0 {pid} 2>/dev/null; do
+        // Pass dynamic values as positional parameters to avoid shell interpolation issues.
+        let script = r#"
+            while kill -0 "$0" 2>/dev/null; do
                 sleep 0.1
             done
 
-            {app_path}
-            "#,
-            pid = app_pid,
-            app_path = app_path.display()
-        );
+            "$1"
+            "#;
 
         #[allow(
             clippy::disallowed_methods,
@@ -249,6 +253,8 @@ impl<P: LinuxClient + 'static> Platform for LinuxPlatform<P> {
             .arg("bash")
             .arg("-c")
             .arg(script)
+            .arg(&app_pid)
+            .arg(&app_path)
             .process_group(0)
             .spawn();
 
@@ -528,6 +534,14 @@ impl<P: LinuxClient + 'static> Platform for LinuxPlatform<P> {
         self.inner.set_cursor_style(style)
     }
 
+    fn hide_cursor_until_mouse_moves(&self) {
+        self.inner.hide_cursor_until_mouse_moves()
+    }
+
+    fn is_cursor_visible(&self) -> bool {
+        self.inner.is_cursor_visible()
+    }
+
     fn should_auto_hide_scrollbars(&self) -> bool {
         self.inner.with_common(|common| common.auto_hide_scrollbars)
     }
@@ -602,6 +616,10 @@ impl<P: LinuxClient + 'static> Platform for LinuxPlatform<P> {
         self.inner.with_common(|common| common.appearance)
     }
 
+    fn button_layout(&self) -> Option<WindowButtonLayout> {
+        Some(self.inner.with_common(|common| common.button_layout))
+    }
+
     fn register_url_scheme(&self, _: &str) -> Task<anyhow::Result<()>> {
         Task::ready(Err(anyhow!("register_url_scheme unimplemented")))
     }
@@ -634,28 +652,42 @@ pub(super) fn open_uri_internal(
     if let Some(uri) = ashpd::Uri::parse(uri).log_err() {
         executor
             .spawn(async move {
-                match ashpd::desktop::open_uri::OpenFileRequest::default()
-                    .activation_token(activation_token.clone().map(ashpd::ActivationToken::from))
-                    .send_uri(&uri)
-                    .await
-                    .and_then(|e| e.response())
-                {
-                    Ok(()) => return,
-                    Err(e) => log::error!("Failed to open with dbus: {}", e),
-                }
-
+                let mut xdg_open_failed = false;
                 for mut command in open::commands(uri.to_string()) {
                     if let Some(token) = activation_token.as_ref() {
                         command.env("XDG_ACTIVATION_TOKEN", token);
                     }
                     let program = format!("{:?}", command.get_program());
                     match smol::process::Command::from(command).spawn() {
-                        Ok(mut cmd) => {
-                            cmd.status().await.log_err();
-                            return;
-                        }
+                        Ok(mut cmd) => match cmd.status().await {
+                            Ok(status) if status.success() => return,
+                            Ok(status) => {
+                                log::error!("Command {} exited with status: {}", program, status);
+                                xdg_open_failed = true;
+                            }
+                            Err(e) => {
+                                log::error!("Failed to get status from {}: {}", program, e);
+                                xdg_open_failed = true;
+                            }
+                        },
                         Err(e) => {
-                            log::error!("Failed to open with {}: {}", program, e)
+                            log::error!("Failed to open with {}: {}", program, e);
+                            xdg_open_failed = true;
+                        }
+                    }
+                }
+
+                if xdg_open_failed {
+                    match ashpd::desktop::open_uri::OpenFileRequest::default()
+                        .activation_token(activation_token.map(ashpd::ActivationToken::from))
+                        .send_uri(&uri)
+                        .await
+                        .and_then(|e| e.response())
+                    {
+                        Ok(()) => {}
+                        Err(ashpd::Error::Response(ashpd::desktop::ResponseError::Cancelled)) => {}
+                        Err(e) => {
+                            log::error!("Failed to open with dbus: {}", e);
                         }
                     }
                 }
@@ -756,12 +788,6 @@ pub(super) fn cursor_style_to_icon_names(style: CursorStyle) -> &'static [&'stat
         CursorStyle::DragLink => &["alias"],
         CursorStyle::DragCopy => &["copy"],
         CursorStyle::ContextualMenu => &["context-menu"],
-        CursorStyle::None => {
-            #[cfg(debug_assertions)]
-            panic!("CursorStyle::None should be handled separately in the client");
-            #[cfg(not(debug_assertions))]
-            &[DEFAULT_CURSOR_ICON_NAME]
-        }
     }
 }
 
@@ -1036,6 +1062,46 @@ pub(super) fn modifiers_from_xkb(keymap_state: &State) -> gpui::Modifiers {
 pub(super) fn capslock_from_xkb(keymap_state: &State) -> gpui::Capslock {
     let on = keymap_state.mod_name_is_active(xkb::MOD_NAME_CAPS, xkb::STATE_MODS_EFFECTIVE);
     gpui::Capslock { on }
+}
+
+/// Resolve a Linux `dev_t` to PCI vendor/device IDs via sysfs, returning a
+/// [`CompositorGpuHint`] that the GPU adapter selection code can use to
+/// prioritize the compositor's rendering device.
+#[cfg(any(feature = "wayland", feature = "x11"))]
+pub(super) fn compositor_gpu_hint_from_dev_t(dev: u64) -> Option<gpui_wgpu::CompositorGpuHint> {
+    fn dev_major(dev: u64) -> u32 {
+        ((dev >> 8) & 0xfff) as u32 | (((dev >> 32) & !0xfff) as u32)
+    }
+
+    fn dev_minor(dev: u64) -> u32 {
+        (dev & 0xff) as u32 | (((dev >> 12) & !0xff) as u32)
+    }
+
+    fn read_sysfs_hex_id(path: &str) -> Option<u32> {
+        let content = std::fs::read_to_string(path).ok()?;
+        let trimmed = content.trim().strip_prefix("0x").unwrap_or(content.trim());
+        u32::from_str_radix(trimmed, 16).ok()
+    }
+
+    let major = dev_major(dev);
+    let minor = dev_minor(dev);
+
+    let vendor_path = format!("/sys/dev/char/{major}:{minor}/device/vendor");
+    let device_path = format!("/sys/dev/char/{major}:{minor}/device/device");
+
+    let vendor_id = read_sysfs_hex_id(&vendor_path)?;
+    let device_id = read_sysfs_hex_id(&device_path)?;
+
+    log::info!(
+        "Compositor GPU hint: vendor={:#06x}, device={:#06x} (from dev {major}:{minor})",
+        vendor_id,
+        device_id,
+    );
+
+    Some(gpui_wgpu::CompositorGpuHint {
+        vendor_id,
+        device_id,
+    })
 }
 
 #[cfg(test)]

@@ -45,32 +45,42 @@ def get_crate_dependencies(crate_path):
     
     data = read_toml(cargo_path)
     deps = []
-    
+
     for section in ["dependencies", "dev-dependencies", "build-dependencies"]:
         if section in data:
             deps.extend(data[section].keys())
-            
-    if "target" in data:
-        for target in data["target"]:
-            if "dependencies" in data["target"][target]:
-                deps.extend(data["target"][target]["dependencies"].keys())
-            if "build-dependencies" in data["target"][target]:
-                deps.extend(data["target"][target]["build-dependencies"].keys())
-                
+
+    def collect_nested_dependencies(table):
+        if not isinstance(table, dict):
+            return
+
+        for section in ["dependencies", "dev-dependencies", "build-dependencies"]:
+            if section in table:
+                deps.extend(table[section].keys())
+
+        for value in table.values():
+            if isinstance(value, dict):
+                collect_nested_dependencies(value)
+
+    collect_nested_dependencies(data.get("target", {}))
+
     return deps
+
+def get_local_dependency_map(workspace_deps):
+    dep_name_to_path = {}
+    for name, defn in workspace_deps.items():
+        if isinstance(defn, dict) and "path" in defn:
+            path = defn["path"]
+            if path.startswith("crates/"):
+                dep_name_to_path[name] = os.path.basename(path)
+    return dep_name_to_path
 
 def resolve_local_dependencies(start_crate, root_path, workspace_deps):
     to_visit = [start_crate]
     visited = set()
     local_crates = set()
 
-    dep_name_to_path = {}
-    for name, defn in workspace_deps.items():
-        if isinstance(defn, dict) and "path" in defn:
-            path = defn["path"]
-            if path.startswith("crates/"):
-                crate_name = os.path.basename(path)
-                dep_name_to_path[name] = crate_name
+    dep_name_to_path = get_local_dependency_map(workspace_deps)
 
     while to_visit:
         current_crate = to_visit.pop()

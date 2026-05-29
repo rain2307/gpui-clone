@@ -624,15 +624,15 @@ git = "https://github.com/zed-industries/calloop"
 
 [patch.crates-io.livekit]
 git = "https://github.com/zed-industries/livekit-rust-sdks"
-rev = "147fbca3d4b592d96d33f5e6a84b59fc0b5d9bf1"
+rev = "c3a55bbc207008f1ca3474b6037fdd3c443cad0f"
 
 [patch.crates-io.libwebrtc]
 git = "https://github.com/zed-industries/livekit-rust-sdks"
-rev = "147fbca3d4b592d96d33f5e6a84b59fc0b5d9bf1"
+rev = "c3a55bbc207008f1ca3474b6037fdd3c443cad0f"
 
 [patch.crates-io.webrtc-sys]
 git = "https://github.com/zed-industries/livekit-rust-sdks"
-rev = "147fbca3d4b592d96d33f5e6a84b59fc0b5d9bf1"
+rev = "c3a55bbc207008f1ca3474b6037fdd3c443cad0f"
 
 [profile.dev.build-override]
 codegen-units = 16

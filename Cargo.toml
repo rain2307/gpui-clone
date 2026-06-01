@@ -574,6 +574,10 @@ rev = "baff0b51c64ef6a1fb1f8390f3ad6015b83ec13a"
 version = "1.1.2"
 features = [ "v4", "v5", "v7", "serde",]
 
+[workspace.dependencies.vte]
+version = "0.15.0"
+features = [ "ansi",]
+
 [workspace.dependencies.wasmtime]
 version = "36"
 default-features = false

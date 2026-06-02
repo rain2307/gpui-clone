@@ -364,11 +364,6 @@ features = [ "add", "add_assign", "deref", "deref_mut", "display", "from_str", "
 git = "https://github.com/zed-industries/gh-workflow"
 rev = "37f3c0575d379c218a9c455ee67585184e40d43f"
 
-[workspace.dependencies.git2]
-version = "0.21.0"
-default-features = false
-features = [ "vendored-libgit2", "unstable-sha256",]
-
 [workspace.dependencies.heed]
 version = "0.21.0"
 features = [ "read-txn-no-tls",]

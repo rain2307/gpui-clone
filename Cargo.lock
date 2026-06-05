@@ -1199,6 +1199,7 @@ dependencies = [
 name = "collections"
 version = "0.1.0"
 dependencies = [
+ "gpui_util",
  "indexmap",
  "rustc-hash 2.1.1",
 ]

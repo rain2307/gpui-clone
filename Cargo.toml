@@ -622,6 +622,14 @@ rev = "c3a55bbc207008f1ca3474b6037fdd3c443cad0f"
 git = "https://github.com/zed-industries/livekit-rust-sdks"
 rev = "c3a55bbc207008f1ca3474b6037fdd3c443cad0f"
 
+[patch.crates-io.notify]
+git = "https://github.com/zed-industries/notify"
+rev = "faecbc33db4f59313e5225ef766bfd9e54a54cfd"
+
+[patch.crates-io.notify-types]
+git = "https://github.com/zed-industries/notify"
+rev = "faecbc33db4f59313e5225ef766bfd9e54a54cfd"
+
 [patch.crates-io.webrtc-sys]
 git = "https://github.com/zed-industries/livekit-rust-sdks"
 rev = "c3a55bbc207008f1ca3474b6037fdd3c443cad0f"

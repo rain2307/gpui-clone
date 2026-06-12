@@ -101,6 +101,7 @@ nix = "0.29"
 nucleo = "0.5"
 num-format = "0.4.4"
 objc = "0.2"
+objc2 = "0.6"
 open = "5.0.0"
 ordered-float = "2.1.1"
 parking_lot = "0.12.1"
@@ -394,9 +395,9 @@ version = "0.12.10"
 features = [ "sync",]
 
 [workspace.dependencies.objc2-app-kit]
-version = "0.3"
+version = "0.3.2"
 default-features = false
-features = [ "NSGraphics",]
+features = [ "NSButton", "NSControl", "NSGraphics", "NSResponder", "NSView", "NSWindow", "objc2-core-foundation",]
 
 [workspace.dependencies.objc2-foundation]
 version = "=0.3.2"
@@ -602,6 +603,10 @@ nonminimal_bool = "allow"
 
 [workspace.metadata.cargo-machete]
 ignored = [ "bindgen", "cbindgen", "prost_build", "serde", "component", "documented", "sea-orm-macros",]
+
+[patch.crates-io.async-process]
+git = "https://github.com/zed-industries/async-process.git"
+rev = "0b6d6713570af61806e1e5cb40e0f757cb93fd9d"
 
 [patch.crates-io.async-task]
 git = "https://github.com/smol-rs/async-task.git"

@@ -302,7 +302,7 @@ features = [ "unstable",]
 
 [workspace.dependencies.alacritty_terminal]
 git = "https://github.com/zed-industries/alacritty"
-rev = "fcf32feacb367b75ec84dd40f041e4fd411d3cc1"
+rev = "4c129667ce56611becdc82de6e28218c80e2e88f"
 
 [workspace.dependencies.ashpd]
 version = "0.13"

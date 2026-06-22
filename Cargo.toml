@@ -349,6 +349,12 @@ features = [ "serde",]
 version = "4.4"
 features = [ "derive", "wrap_help",]
 
+[workspace.dependencies.clap_complete]
+version = "4.4"
+
+[workspace.dependencies.clap_complete_nushell]
+version = "4.4"
+
 [workspace.dependencies.core-video]
 version = "0.5.2"
 features = [ "metal",]

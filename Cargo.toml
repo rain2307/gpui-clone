@@ -471,6 +471,11 @@ features = [ "charset", "http2", "macos-system-configuration", "multipart", "rus
 package = "zed-reqwest"
 version = "0.12.15-zed"
 
+[workspace.dependencies.resvg]
+version = "0.46.0"
+default-features = false
+features = [ "text", "system-fonts", "memmap-fonts", "raster-images",]
+
 [workspace.dependencies.runtimelib]
 version = "1.4.0"
 default-features = false
@@ -575,6 +580,10 @@ rev = "e2c53597d6a5d9cf7bbe8dccde576fe1e46c5899"
 [workspace.dependencies.tree-sitter-yaml]
 git = "https://github.com/zed-industries/tree-sitter-yaml"
 rev = "baff0b51c64ef6a1fb1f8390f3ad6015b83ec13a"
+
+[workspace.dependencies.usvg]
+version = "0.46.0"
+default-features = false
 
 [workspace.dependencies.uuid]
 version = "1.1.2"

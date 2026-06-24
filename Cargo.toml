@@ -10,6 +10,7 @@ edition = "2024"
 [workspace.dependencies]
 console = "0.16"
 crossbeam = "0.8.4"
+mime = "0.3.17"
 accesskit = "0.24.0"
 accesskit_macos = "0.26.0"
 accesskit_unix = "0.21.0"

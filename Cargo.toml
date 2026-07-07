@@ -575,8 +575,8 @@ git = "https://github.com/zed-industries/tree-sitter-heex"
 rev = "1dd45142fbb05562e35b2040c6129c9bca346592"
 
 [workspace.dependencies.tree-sitter-md]
-git = "https://github.com/tree-sitter-grammars/tree-sitter-markdown"
-rev = "9a23c1a96c0513d8fc6520972beedd419a973539"
+git = "https://github.com/zed-industries/tree-sitter-markdown"
+rev = "b596e737286780d7bfa9fcddceaeeb754574b352"
 
 [workspace.dependencies.tree-sitter-typescript]
 git = "https://github.com/zed-industries/tree-sitter-typescript"

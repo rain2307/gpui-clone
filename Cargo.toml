@@ -334,6 +334,10 @@ features = [ "hardcoded-credentials",]
 version = "1.112.0"
 features = [ "behavior-version-latest",]
 
+[workspace.dependencies.aws-sigv4]
+version = "1.4.0"
+features = [ "http1",]
+
 [workspace.dependencies.aws-smithy-runtime-api]
 version = "1.9.2"
 features = [ "http-1x", "client",]

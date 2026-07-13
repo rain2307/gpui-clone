@@ -79,7 +79,6 @@ http-body = "1.0"
 httparse = "1.10"
 idna = "1.0"
 ignore = "0.4.22"
-image = "0.25.1"
 imara-diff = "0.1.8"
 indoc = "2"
 inventory = "0.3.19"
@@ -388,6 +387,11 @@ rev = "37f3c0575d379c218a9c455ee67585184e40d43f"
 [workspace.dependencies.heed]
 version = "0.21.0"
 features = [ "read-txn-no-tls",]
+
+[workspace.dependencies.image]
+version = "0.25.1"
+default-features = false
+features = [ "bmp", "dds", "exr", "ff", "gif", "hdr", "ico", "jpeg", "png", "pnm", "qoi", "rayon", "tga", "tiff", "webp",]
 
 [workspace.dependencies.indexmap]
 version = "2.7.0"

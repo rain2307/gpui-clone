@@ -24,7 +24,7 @@ async-fs = "2.1"
 async-io = "2.6.0"
 async-lock = "3.4.2"
 async-recursion = "1.0.0"
-async-tar = "0.5.1"
+async-tar = "0.6"
 async-task = "4.7"
 async-trait = "0.1"
 async-tungstenite = "0.31.0"
@@ -322,6 +322,10 @@ features = [ "bzip2", "gzip", "futures-io",]
 [workspace.dependencies.async-pipe]
 git = "https://github.com/zed-industries/async-pipe-rs"
 rev = "82d00a04211cf4e1236029aa03e6b6ce2a74c553"
+
+[workspace.dependencies.async-std]
+version = "1.12"
+features = [ "unstable",]
 
 [workspace.dependencies.async_zip]
 version = "0.0.18"

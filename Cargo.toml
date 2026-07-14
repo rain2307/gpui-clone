@@ -151,6 +151,7 @@ thiserror = "2.0.12"
 tiny_http = "0.12"
 toml = "0.8"
 tower-http = "0.4.4"
+tree-sitter = "0.26.9"
 tree-sitter-bash = "0.25.1"
 tree-sitter-c = "0.24.1"
 tree-sitter-css = "0.23"
@@ -561,10 +562,6 @@ features = [ "futures-io", "tokio",]
 version = "0.22"
 default-features = false
 features = [ "display", "parse", "serde",]
-
-[workspace.dependencies.tree-sitter]
-version = "0.26.9"
-features = [ "wasm",]
 
 [workspace.dependencies.tree-sitter-cpp]
 git = "https://github.com/tree-sitter/tree-sitter-cpp"

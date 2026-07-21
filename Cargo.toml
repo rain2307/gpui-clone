@@ -316,7 +316,7 @@ version = "0.24.0"
 features = [ "enumn",]
 
 [workspace.dependencies.agent-client-protocol]
-version = "=1.1.0"
+version = "=1.3.0"
 features = [ "unstable",]
 
 [workspace.dependencies.alacritty_terminal]
@@ -688,11 +688,11 @@ rev = "d0e27be0cdad89eadab3e36207cda0a2b6e359ee"
 
 [patch.crates-io.notify]
 git = "https://github.com/zed-industries/notify"
-rev = "faecbc33db4f59313e5225ef766bfd9e54a54cfd"
+rev = "0890bbb8ca40a4b5d1f67031698dd7918b37d991"
 
 [patch.crates-io.notify-types]
 git = "https://github.com/zed-industries/notify"
-rev = "faecbc33db4f59313e5225ef766bfd9e54a54cfd"
+rev = "0890bbb8ca40a4b5d1f67031698dd7918b37d991"
 
 [patch.crates-io.webrtc-sys]
 git = "https://github.com/zed-industries/livekit-rust-sdks"

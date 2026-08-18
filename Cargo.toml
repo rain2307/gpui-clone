@@ -404,7 +404,7 @@ rev = "1b461b310481d01e02b2603c16d7144b926339f8"
 
 [workspace.dependencies.derive_more]
 version = "2.1.1"
-features = [ "add", "add_assign", "deref", "deref_mut", "display", "from_str", "mul", "mul_assign", "not",]
+features = [ "add", "add_assign", "deref", "deref_mut", "display", "from", "from_str", "mul", "mul_assign", "not",]
 
 [workspace.dependencies.dialoguer]
 version = "0.12"

@@ -165,7 +165,6 @@ tiny_http = "0.12"
 toml = "0.8"
 tower-http = "0.4.4"
 tracing = "0.1.40"
-tree-sitter = "0.26.9"
 tree-sitter-bash = "0.25.1"
 tree-sitter-c = "0.24.1"
 tree-sitter-css = "0.23"
@@ -594,6 +593,10 @@ version = "0.22"
 default-features = false
 features = [ "display", "parse", "serde",]
 
+[workspace.dependencies.tree-sitter]
+git = "https://github.com/tree-sitter/tree-sitter"
+rev = "dff1fd868c750dbbae179fcd5c43ce987e4e0528"
+
 [workspace.dependencies.tree-sitter-cpp]
 git = "https://github.com/tree-sitter/tree-sitter-cpp"
 rev = "5cb9b693cfd7bfacab1d9ff4acac1a4150700609"
@@ -677,6 +680,10 @@ ignored = [ "bindgen", "cbindgen", "prost_build", "serde", "component", "documen
 [workspace.metadata.dylint]
 [[workspace.metadata.dylint.libraries]]
 path = "tooling/lints"
+
+[patch.crates-io.tree-sitter-language]
+git = "https://github.com/tree-sitter/tree-sitter"
+rev = "dff1fd868c750dbbae179fcd5c43ce987e4e0528"
 
 [patch.crates-io.async-process]
 git = "https://github.com/zed-industries/async-process.git"

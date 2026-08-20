@@ -9003,10 +9003,14 @@ checksum = "29666d0abbfad1e3dc4dcf6144730dd3a3ab225bbbdac83319345b1b44ccfc1b"
 name = "ztracing"
 version = "0.1.0"
 dependencies = [
+ "async-channel 2.5.0",
+ "js-sys",
  "tracing",
  "tracing-subscriber",
  "tracing-tracy",
  "tracy-client",
+ "wasm-bindgen",
+ "web-sys",
  "zlog",
  "ztracing_macro",
 ]

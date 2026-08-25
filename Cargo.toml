@@ -186,7 +186,7 @@ wasm-encoder = "0.252"
 wasmparser = "0.252"
 wasm-bindgen = "0.2.120"
 wasm-bindgen-futures = "0.4"
-wasmtime-wasi = "36.0.14"
+wasmtime-wasi = "48"
 wax = "0.7"
 web-time = "1.1.0"
 webrtc-sys = "0.3.23"
@@ -590,7 +590,7 @@ features = [ "display", "parse", "serde",]
 
 [workspace.dependencies.tree-sitter]
 git = "https://github.com/tree-sitter/tree-sitter"
-rev = "dff1fd868c750dbbae179fcd5c43ce987e4e0528"
+rev = "43623ec9bf0eaaf7113285c46e8a09018f181b18"
 
 [workspace.dependencies.tree-sitter-cpp]
 git = "https://github.com/tree-sitter/tree-sitter-cpp"
@@ -643,9 +643,9 @@ version = "0.15.0"
 features = [ "ansi",]
 
 [workspace.dependencies.wasmtime]
-version = "36"
+version = "48"
 default-features = false
-features = [ "async", "demangle", "runtime", "cranelift", "component-model", "incremental-cache", "parallel-compilation",]
+features = [ "anyhow", "async", "demangle", "runtime", "cranelift", "component-model", "incremental-cache", "parallel-compilation",]
 
 [workspace.dependencies.yawc]
 git = "https://github.com/zed-industries/yawc"
@@ -675,7 +675,7 @@ path = "tooling/lints"
 
 [patch.crates-io.tree-sitter-language]
 git = "https://github.com/tree-sitter/tree-sitter"
-rev = "dff1fd868c750dbbae179fcd5c43ce987e4e0528"
+rev = "43623ec9bf0eaaf7113285c46e8a09018f181b18"
 
 [patch.crates-io.async-process]
 git = "https://github.com/zed-industries/async-process.git"

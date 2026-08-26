@@ -24,7 +24,7 @@ async-process = "2.5.0"
 async-recursion = "1.0.0"
 async-task = "4.7"
 async-trait = "0.1"
-async-tungstenite = "0.31.0"
+async-tungstenite = "0.33"
 backtrace = "0.3"
 base64 = "0.22"
 bitflags = "2.6.0"
@@ -47,20 +47,20 @@ core-foundation-sys = "0.8.6"
 core-graphics = "0.24"
 core-text = "21"
 cpal = "0.17"
-crash-handler = "0.7"
+crash-handler = "0.8"
 crossbeam = "0.8.4"
 ctor = "1.0.12"
 dashmap = "6.0"
 dirs = "6.0"
-documented = "0.9.1"
+documented = "0.10"
 dotenvy = "0.15.0"
 dunce = "1.0"
-emojis = "0.6.1"
+emojis = "0.9"
 encoding_rs = "0.8"
 env_logger = "0.11"
 etagere = "0.2"
 exec = "0.3.1"
-fancy-regex = "0.18.0"
+fancy-regex = "0.19"
 flume = "0.12"
 foreign-types = "0.5"
 fork = "0.4.0"
@@ -69,11 +69,10 @@ futures-concurrency = "7.7.1"
 futures-lite = "1.13"
 globset = "0.4"
 handlebars = "4.3"
-hdrhistogram = "7"
 heapless = "0.9.2"
 heck = "0.5"
 hex = "0.4.3"
-html5ever = "0.27.0"
+html5ever = "0.39"
 http = "1.1"
 http-body = "1.0"
 httparse = "1.10"
@@ -86,7 +85,6 @@ inventory = "0.3.19"
 itertools = "0.14.0"
 js-sys = "0.3"
 json_dotpath = "1.1"
-jsonschema = "0.37.0"
 jsonwebtoken = "10.0"
 jupyter-protocol = "1.4.0"
 jupyter-websocket-client = "1.1.0"
@@ -95,10 +93,10 @@ libwebrtc = "0.3.26"
 linkify = "0.10.0"
 lru = "0.16"
 mach2 = "0.5"
-markup5ever_rcdom = "0.3.0"
+markup5ever_rcdom = "0.39"
 metal = "0.33"
 mime = "0.3.17"
-minidumper = "0.9"
+minidumper = "0.11"
 nanoid = "0.4"
 nbformat = "1.2.0"
 nix = "0.29"
@@ -122,9 +120,10 @@ proc-macro2 = "1.0.93"
 profiling = "1"
 pollster = "0.4.0"
 proptest-derive = "0.8.0"
-prost = "0.9"
-prost-build = "0.9"
-prost-types = "0.9"
+prost = "0.14"
+prost-build = "0.14"
+prost-types = "0.14"
+protox = "0.9"
 proxyvars = "0.2"
 quick-xml = "0.38"
 quote = "1.0.9"
@@ -134,7 +133,7 @@ rayon = "1.8"
 regex = "1.5"
 rsa = "0.9.6"
 rustc-hash = "2.1.0"
-rustls-platform-verifier = "0.5.0"
+rustls-platform-verifier = "0.7"
 seccompiler = "0.5"
 serde_path_to_error = "0.1.17"
 serde_urlencoded = "0.7"
@@ -189,9 +188,10 @@ wasm-bindgen-futures = "0.4"
 wasmtime-wasi = "48"
 wax = "0.7"
 web-time = "1.1.0"
+webpki-roots = "1.0.8"
 webrtc-sys = "0.3.23"
 wgpu = "29.0.4"
-which = "6.0.0"
+which = "8"
 windows-core = "0.61"
 windows-registry = "0.6.0"
 yaml-rust2 = "0.8"
@@ -355,7 +355,8 @@ features = [ "hardcoded-credentials",]
 
 [workspace.dependencies.aws-sdk-bedrockruntime]
 version = "1.112.0"
-features = [ "behavior-version-latest",]
+default-features = false
+features = [ "behavior-version-latest", "default-https-client", "rt-tokio",]
 
 [workspace.dependencies.aws-sigv4]
 version = "1.4.0"
@@ -415,6 +416,10 @@ features = [ "allow-empty-values",]
 git = "https://github.com/zed-industries/gh-workflow"
 rev = "37f3c0575d379c218a9c455ee67585184e40d43f"
 
+[workspace.dependencies.hdrhistogram]
+version = "7"
+default-features = false
+
 [workspace.dependencies.heed]
 version = "0.21.0"
 features = [ "read-txn-no-tls",]
@@ -427,6 +432,10 @@ features = [ "bmp", "dds", "exr", "ff", "gif", "hdr", "ico", "jpeg", "png", "pnm
 [workspace.dependencies.indexmap]
 version = "2.7.0"
 features = [ "serde",]
+
+[workspace.dependencies.jsonschema]
+version = "0.51"
+default-features = false
 
 [workspace.dependencies.libsqlite3-sys]
 version = "0.30.1"
@@ -510,7 +519,7 @@ default-features = false
 
 [workspace.dependencies.reqwest]
 git = "https://github.com/zed-industries/reqwest.git"
-rev = "c15662463bda39148ba154100dd44d3fba5873a4"
+rev = "33bc764aa15ff7b200bf7c93bd96e24878d53e14"
 default-features = false
 features = [ "charset", "http2", "macos-system-configuration", "multipart", "rustls-tls-native-roots", "socks", "stream",]
 package = "zed-reqwest"
@@ -569,7 +578,7 @@ version = "1.6"
 features = [ "union", "const_new",]
 
 [workspace.dependencies.strum]
-version = "0.27.2"
+version = "0.28"
 features = [ "derive",]
 
 [workspace.dependencies.syn]
@@ -694,11 +703,11 @@ git = "https://github.com/zed-industries/calloop"
 
 [patch.crates-io.livekit]
 git = "https://github.com/zed-industries/livekit-rust-sdks"
-rev = "d0e27be0cdad89eadab3e36207cda0a2b6e359ee"
+rev = "0a1c519cfce9b365229026b55de9b9dbdb6fed3c"
 
 [patch.crates-io.libwebrtc]
 git = "https://github.com/zed-industries/livekit-rust-sdks"
-rev = "d0e27be0cdad89eadab3e36207cda0a2b6e359ee"
+rev = "0a1c519cfce9b365229026b55de9b9dbdb6fed3c"
 
 [patch.crates-io.notify]
 git = "https://github.com/zed-industries/notify"
@@ -710,7 +719,7 @@ rev = "0890bbb8ca40a4b5d1f67031698dd7918b37d991"
 
 [patch.crates-io.webrtc-sys]
 git = "https://github.com/zed-industries/livekit-rust-sdks"
-rev = "d0e27be0cdad89eadab3e36207cda0a2b6e359ee"
+rev = "0a1c519cfce9b365229026b55de9b9dbdb6fed3c"
 
 [profile.dev.build-override]
 codegen-units = 16

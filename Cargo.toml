@@ -451,7 +451,7 @@ features = [ "kv_unstable_serde", "serde",]
 
 [workspace.dependencies.lsp-types]
 git = "https://github.com/zed-industries/lsp-types"
-rev = "f4dfa89a21ca35cd929b70354b1583fabae325f8"
+rev = "f1783e63a7f4eb4397bf51d4148b4895a1f7ab16"
 
 [workspace.dependencies.moka]
 version = "0.12.10"

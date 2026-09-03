@@ -75,6 +75,58 @@ def get_local_dependency_map(workspace_deps):
                 dep_name_to_path[name] = os.path.basename(path)
     return dep_name_to_path
 
+def get_local_patch_roots(root_cargo_toml):
+    roots = set()
+    patch_tables = root_cargo_toml.get("patch", {})
+    if not isinstance(patch_tables, dict):
+        return roots
+
+    for patches in patch_tables.values():
+        if not isinstance(patches, dict):
+            continue
+
+        for definition in patches.values():
+            if not isinstance(definition, dict):
+                continue
+
+            path = definition.get("path")
+            if not isinstance(path, str):
+                continue
+
+            normalized_path = os.path.normpath(path)
+            if (
+                os.path.isabs(normalized_path)
+                or normalized_path == os.pardir
+                or normalized_path.startswith(os.pardir + os.sep)
+            ):
+                continue
+
+            root = normalized_path.split(os.sep, 1)[0]
+            if root not in {"", os.curdir}:
+                roots.add(root)
+
+    return roots
+
+def clean_root_files(output_dir, root_cargo_toml):
+    files_to_keep = {
+        "Cargo.toml", "Cargo.lock", "clippy.toml", "rust-toolchain.toml", "crates", "target", ".gitignore"
+    }
+    files_to_keep.update(get_local_patch_roots(root_cargo_toml))
+
+    for item in os.listdir(output_dir):
+        path = os.path.join(output_dir, item)
+
+        if os.path.islink(path):
+            print(f"Removing symbolic link: {item}")
+            os.remove(path)
+            continue
+
+        if item not in files_to_keep:
+            if os.path.isfile(path):
+                os.remove(path)
+            elif os.path.isdir(path):
+                shutil.rmtree(path)
+
 def resolve_local_dependencies(start_crate, root_path, workspace_deps):
     to_visit = [start_crate]
     visited = set()
@@ -204,24 +256,7 @@ def main():
                 else:
                     os.remove(path)
                 
-        files_to_keep = {
-            "Cargo.toml", "Cargo.lock", "clippy.toml", "rust-toolchain.toml", "crates", "target", ".gitignore"
-        }
-        
-        for f in os.listdir(OUTPUT_DIR):
-            path = os.path.join(OUTPUT_DIR, f)
-            
-            # Remove symbolic links in root
-            if os.path.islink(path):
-                print(f"Removing symbolic link: {f}")
-                os.remove(path)
-                continue
-
-            if f not in files_to_keep:
-                if os.path.isfile(path):
-                    os.remove(path)
-                elif os.path.isdir(path):
-                    shutil.rmtree(path)
+        clean_root_files(OUTPUT_DIR, root_cargo)
 
         # 4.6. Stub util_macros (remove perf dependency)
         print("Stubbing util_macros...")

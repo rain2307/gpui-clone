@@ -33,5 +33,8 @@ jobs:
         run: |
           git config --global url."https://${{ secrets.GPUI_CLONE_PAT }}@github.com/".insteadOf "https://github.com/"
 
+      - name: Run sync script tests
+        run: python3 -m unittest discover -s .github/scripts/tests -p 'test_*.py'
+
       - name: Run Sync Script
         run: python3 .github/scripts/run.py

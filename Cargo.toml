@@ -324,7 +324,7 @@ rev = "4c129667ce56611becdc82de6e28218c80e2e88f"
 [workspace.dependencies.ashpd]
 version = "0.13"
 default-features = false
-features = [ "async-io", "notification", "open_uri", "file_chooser", "settings", "trash",]
+features = [ "async-io", "inhibit", "notification", "open_uri", "file_chooser", "settings", "trash",]
 
 [workspace.dependencies.async-compression]
 version = "0.4"
@@ -461,7 +461,7 @@ features = [ "sync",]
 [workspace.dependencies.objc2-app-kit]
 version = "0.3.2"
 default-features = false
-features = [ "NSAlert", "NSApplication", "NSButton", "NSControl", "NSGraphics", "NSResponder", "NSView", "NSWindow", "block2", "objc2-core-foundation",]
+features = [ "NSAlert", "NSApplication", "NSButton", "NSControl", "NSGraphics", "NSResponder", "NSView", "NSWindow", "NSWorkspace", "block2", "objc2-core-foundation",]
 
 [workspace.dependencies.objc2-foundation]
 version = "=0.3.2"
@@ -664,7 +664,7 @@ version = "0.3.3"
 
 [workspace.dependencies.windows]
 version = "0.62"
-features = [ "Data_Xml_Dom", "Foundation_Numerics", "Globalization_DateTimeFormatting", "Storage_Search", "Storage_Streams", "System_Threading", "UI_Notifications", "UI_ViewManagement", "Wdk_System_SystemServices", "Win32_Foundation", "Win32_Globalization", "Win32_Graphics_Direct3D", "Win32_Graphics_Direct3D11", "Win32_Graphics_Direct3D_Fxc", "Win32_Graphics_DirectComposition", "Win32_Graphics_DirectWrite", "Win32_Graphics_DirectManipulation", "Win32_Graphics_Dwm", "Win32_Graphics_Dxgi", "Win32_Graphics_Dxgi_Common", "Win32_Graphics_Gdi", "Win32_Graphics_Imaging", "Win32_Graphics_Hlsl", "Win32_Networking_WinSock", "Win32_Security", "Win32_Security_Credentials", "Win32_Security_Cryptography", "Win32_Storage_FileSystem", "Win32_Storage_Packaging_Appx", "Win32_System_Com", "Win32_System_Com_StructuredStorage", "Win32_System_Console", "Win32_System_Diagnostics_Debug", "Win32_System_DataExchange", "Win32_System_IO", "Win32_System_JobObjects", "Win32_System_LibraryLoader", "Win32_System_Memory", "Win32_System_Ole", "Win32_System_Performance", "Win32_System_Pipes", "Win32_System_RestartManager", "Win32_System_SystemInformation", "Win32_System_SystemServices", "Win32_System_Threading", "Win32_System_Variant", "Win32_System_WinRT", "Win32_UI_Controls", "Win32_UI_HiDpi", "Win32_UI_Input_Ime", "Win32_UI_Input_KeyboardAndMouse", "Win32_UI_Input_Pointer", "Win32_UI_Shell", "Win32_UI_Shell_Common", "Win32_UI_Shell_PropertiesSystem", "Win32_UI_WindowsAndMessaging", "Win32_Media",]
+features = [ "Data_Xml_Dom", "Foundation_Numerics", "Globalization_DateTimeFormatting", "Storage_Search", "Storage_Streams", "System_Threading", "UI_Notifications", "UI_ViewManagement", "Wdk_System_SystemServices", "Win32_Foundation", "Win32_Globalization", "Win32_Graphics_Direct3D", "Win32_Graphics_Direct3D11", "Win32_Graphics_Direct3D_Fxc", "Win32_Graphics_DirectComposition", "Win32_Graphics_DirectWrite", "Win32_Graphics_DirectManipulation", "Win32_Graphics_Dwm", "Win32_Graphics_Dxgi", "Win32_Graphics_Dxgi_Common", "Win32_Graphics_Gdi", "Win32_Graphics_Imaging", "Win32_Graphics_Hlsl", "Win32_Networking_WinSock", "Win32_Security", "Win32_Security_Credentials", "Win32_Security_Cryptography", "Win32_Storage_FileSystem", "Win32_Storage_Packaging_Appx", "Win32_System_Com", "Win32_System_Com_StructuredStorage", "Win32_System_Console", "Win32_System_Diagnostics_Debug", "Win32_System_DataExchange", "Win32_System_IO", "Win32_System_JobObjects", "Win32_System_LibraryLoader", "Win32_System_Memory", "Win32_System_Ole", "Win32_System_Performance", "Win32_System_Pipes", "Win32_System_Power", "Win32_System_RestartManager", "Win32_System_SystemInformation", "Win32_System_SystemServices", "Win32_System_Threading", "Win32_System_Variant", "Win32_System_WinRT", "Win32_UI_Controls", "Win32_UI_HiDpi", "Win32_UI_Input_Ime", "Win32_UI_Input_KeyboardAndMouse", "Win32_UI_Input_Pointer", "Win32_UI_Shell", "Win32_UI_Shell_Common", "Win32_UI_Shell_PropertiesSystem", "Win32_UI_WindowsAndMessaging", "Win32_Media",]
 
 [workspace.lints.clippy]
 dbg_macro = "deny"

@@ -462,7 +462,7 @@ features = [ "sync",]
 [workspace.dependencies.objc2-app-kit]
 version = "0.3.2"
 default-features = false
-features = [ "NSAlert", "NSApplication", "NSButton", "NSControl", "NSGraphics", "NSOpenPanel", "NSPanel", "NSResponder", "NSSavePanel", "NSScreen", "NSView", "NSWindow", "NSWorkspace", "block2", "objc2-core-foundation",]
+features = [ "NSAlert", "NSApplication", "NSButton", "NSControl", "NSDraggingItem", "NSGraphics", "NSImage", "NSOpenPanel", "NSPanel", "NSPasteboard", "NSResponder", "NSSavePanel", "NSScreen", "NSView", "NSWindow", "NSWorkspace", "block2", "objc2-core-foundation",]
 
 [workspace.dependencies.objc2-foundation]
 version = "=0.3.2"
@@ -480,32 +480,32 @@ default-features = false
 features = [ "std",]
 
 [workspace.dependencies.pet]
-git = "https://github.com/microsoft/python-environment-tools.git"
-rev = "bb8e04607b96a3865d6aa4bb2a5a5a82ce05b5f0"
+git = "https://github.com/zed-industries/python-environment-tools.git"
+rev = "5aad7164bfc2a58977b103c8ef8fdd7302ed2e9f"
 
 [workspace.dependencies.pet-conda]
-git = "https://github.com/microsoft/python-environment-tools.git"
-rev = "bb8e04607b96a3865d6aa4bb2a5a5a82ce05b5f0"
+git = "https://github.com/zed-industries/python-environment-tools.git"
+rev = "5aad7164bfc2a58977b103c8ef8fdd7302ed2e9f"
 
 [workspace.dependencies.pet-core]
-git = "https://github.com/microsoft/python-environment-tools.git"
-rev = "bb8e04607b96a3865d6aa4bb2a5a5a82ce05b5f0"
+git = "https://github.com/zed-industries/python-environment-tools.git"
+rev = "5aad7164bfc2a58977b103c8ef8fdd7302ed2e9f"
 
 [workspace.dependencies.pet-fs]
-git = "https://github.com/microsoft/python-environment-tools.git"
-rev = "bb8e04607b96a3865d6aa4bb2a5a5a82ce05b5f0"
+git = "https://github.com/zed-industries/python-environment-tools.git"
+rev = "5aad7164bfc2a58977b103c8ef8fdd7302ed2e9f"
 
 [workspace.dependencies.pet-poetry]
-git = "https://github.com/microsoft/python-environment-tools.git"
-rev = "bb8e04607b96a3865d6aa4bb2a5a5a82ce05b5f0"
+git = "https://github.com/zed-industries/python-environment-tools.git"
+rev = "5aad7164bfc2a58977b103c8ef8fdd7302ed2e9f"
 
 [workspace.dependencies.pet-reporter]
-git = "https://github.com/microsoft/python-environment-tools.git"
-rev = "bb8e04607b96a3865d6aa4bb2a5a5a82ce05b5f0"
+git = "https://github.com/zed-industries/python-environment-tools.git"
+rev = "5aad7164bfc2a58977b103c8ef8fdd7302ed2e9f"
 
 [workspace.dependencies.pet-virtualenv]
-git = "https://github.com/microsoft/python-environment-tools.git"
-rev = "bb8e04607b96a3865d6aa4bb2a5a5a82ce05b5f0"
+git = "https://github.com/zed-industries/python-environment-tools.git"
+rev = "5aad7164bfc2a58977b103c8ef8fdd7302ed2e9f"
 
 [workspace.dependencies.postage]
 version = "0.5"

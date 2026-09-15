@@ -462,7 +462,7 @@ features = [ "sync",]
 [workspace.dependencies.objc2-app-kit]
 version = "0.3.2"
 default-features = false
-features = [ "NSAlert", "NSApplication", "NSButton", "NSControl", "NSDraggingItem", "NSGraphics", "NSImage", "NSOpenPanel", "NSPanel", "NSPasteboard", "NSResponder", "NSSavePanel", "NSScreen", "NSView", "NSWindow", "NSWorkspace", "block2", "objc2-core-foundation",]
+features = [ "NSAlert", "NSApplication", "NSButton", "NSControl", "NSDraggingItem", "NSGraphics", "NSImage", "NSOpenPanel", "NSPanel", "NSPasteboard", "NSResponder", "NSSavePanel", "NSScreen", "NSTrackingArea", "NSView", "NSWindow", "NSWorkspace", "block2", "objc2-core-foundation",]
 
 [workspace.dependencies.objc2-foundation]
 version = "=0.3.2"

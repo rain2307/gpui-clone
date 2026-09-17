@@ -1,6 +1,6 @@
 [workspace]
 resolver = "2"
-members = [ "crates/collections", "crates/gpui", "crates/gpui_apple", "crates/gpui_linux", "crates/gpui_macos", "crates/gpui_macros", "crates/gpui_platform", "crates/gpui_shared_string", "crates/gpui_util", "crates/gpui_web", "crates/gpui_wgpu", "crates/gpui_windows", "crates/http_client", "crates/http_client_tls", "crates/media", "crates/path", "crates/refineable", "crates/refineable/derive_refineable", "crates/reqwest_client", "crates/scheduler", "crates/sum_tree", "crates/util", "crates/util_macros", "crates/zlog", "crates/ztracing", "crates/ztracing_macro",]
+members = [ "crates/collections", "crates/gpui", "crates/gpui_apple", "crates/gpui_linux", "crates/gpui_macos", "crates/gpui_macros", "crates/gpui_platform", "crates/gpui_shared_string", "crates/gpui_util", "crates/gpui_web", "crates/gpui_wgpu", "crates/gpui_windows", "crates/http_client", "crates/http_client_tls", "crates/path", "crates/refineable", "crates/refineable/derive_refineable", "crates/reqwest_client", "crates/scheduler", "crates/sum_tree", "crates/util", "crates/util_macros", "crates/zlog", "crates/ztracing", "crates/ztracing_macro",]
 default-members = [ "crates/gpui",]
 
 [workspace.package]
@@ -272,9 +272,6 @@ path = "crates/http_client"
 [workspace.dependencies.http_client_tls]
 path = "crates/http_client_tls"
 
-[workspace.dependencies.media]
-path = "crates/media"
-
 [workspace.dependencies.path]
 path = "crates/path"
 
@@ -465,6 +462,25 @@ version = "0.3.2"
 default-features = false
 features = [ "NSAlert", "NSApplication", "NSButton", "NSControl", "NSDraggingItem", "NSGraphics", "NSImage", "NSOpenPanel", "NSPanel", "NSPasteboard", "NSResponder", "NSSavePanel", "NSScreen", "NSTrackingArea", "NSView", "NSWindow", "NSWorkspace", "block2", "objc2-core-foundation",]
 
+[workspace.dependencies.objc2-core-foundation]
+version = "=0.3.2"
+default-features = false
+
+[workspace.dependencies.objc2-core-graphics]
+version = "=0.3.2"
+default-features = false
+features = [ "CGDirectDisplay",]
+
+[workspace.dependencies.objc2-core-media]
+version = "=0.3.2"
+default-features = false
+features = [ "CMSampleBuffer", "objc2-core-video",]
+
+[workspace.dependencies.objc2-core-video]
+version = "=0.3.2"
+default-features = false
+features = [ "CVBuffer", "CVImageBuffer",]
+
 [workspace.dependencies.objc2-foundation]
 version = "=0.3.2"
 default-features = false
@@ -473,7 +489,7 @@ features = [ "NSArray", "NSAttributedString", "NSBundle", "NSCoder", "NSData", "
 [workspace.dependencies.objc2-screen-capture-kit]
 version = "=0.3.2"
 default-features = false
-features = [ "block2", "objc2-core-graphics", "SCShareableContent", "std",]
+features = [ "block2", "dispatch2", "objc2-core-graphics", "objc2-core-media", "SCShareableContent", "SCStream", "std",]
 
 [workspace.dependencies.palette]
 version = "0.7.5"
